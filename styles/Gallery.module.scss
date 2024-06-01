@@ -1,0 +1,67 @@
+.main {
+  padding-top: 166px;
+}
+
+.headerImage {
+  width: 100%;
+  height: auto;
+}
+
+.eventData {
+  margin: 78px 0 45px;
+
+  h1 {
+    font-family: var(--font-spectral);
+    font-size: 60px;
+    font-weight: 300;
+    line-height: 70px;
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 850px;
+  }
+
+  p {
+    font-family: var(--font-belleza);
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+.imageGallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 70px 50px;
+  grid-auto-flow: row dense;
+  padding: 0 83px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .imagePortret {
+    grid-column: span 3;
+  }
+
+  .imagePortret:nth-of-type(8n - 3) {
+    grid-column: span 2;
+    margin-right: -6px;
+  }
+
+  .imagePortret:nth-of-type(8n - 2) {
+    grid-column: span 2;
+    margin: 0 -12px;
+  }
+
+  .imagePortret:nth-of-type(8n - 1) {
+    grid-column: span 2;
+    margin-left: -6px;
+  }
+
+  .imageLendscape {
+    grid-column: span 6;
+  }
+}

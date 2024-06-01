@@ -1,0 +1,27 @@
+.navlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+
+  &.navListLarge {
+    font-size: 48px;
+    line-height: 55.3px;
+    font-family: var(--font-belleza);
+  }
+
+  li {
+    margin-bottom: 15px;
+    text-align: center;
+
+    .navlistLarge & {
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-align: center;
+      color: #000;
+    }
+  }
+}

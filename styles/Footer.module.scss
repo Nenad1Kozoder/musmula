@@ -1,0 +1,35 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid #fff;
+  padding: 60px 0 50px;
+  margin-top: 56px;
+  color: #000;
+  font-family: var(--font-belleza);
+  font-size: 20px;
+  line-height: 20px;
+
+  // @media screen and (max-width: 359px) {
+  //   grid-template-columns: auto 1fr;
+  // }
+}
+
+.copyrigh {
+  p {
+    margin-bottom: 15px;
+  }
+}
+
+.toTop {
+  display: flex;
+  justify-content: flex-end;
+
+  img {
+    transition: transform 0.1s ease-in;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+}
