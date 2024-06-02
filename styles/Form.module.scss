@@ -29,7 +29,18 @@
       line-height: 44px;
       outline: 0;
     }
+
+    input[type="date"]::before {
+      content: attr(placeholder);
+      position: absolute;
+      color: rgba(0, 0, 0, 0);
+    }
+
+    input[type="date"] {
+      color: rgba(0, 0, 0, 1);
+    }
   }
+
   .textarea {
     grid-column: span 2;
     display: flex;

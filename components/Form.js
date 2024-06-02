@@ -69,7 +69,7 @@ export default function Form() {
         <div className={styles.formItem}>
           <label htmlFor="date">Datum događaja:</label>
           <input
-            type="date"
+            type="text"
             id="date"
             name="date"
             autoComplete="off"
