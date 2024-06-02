@@ -23,6 +23,7 @@ export default function Home({ page, galleries, general }) {
     published,
     twoLargeImage,
     about,
+    contact,
   } = page;
 
   return (
@@ -242,7 +243,14 @@ export default function Home({ page, galleries, general }) {
             alt={about.image.node.title}
           />
         </section>
-        <section>{/* <Form /> */}</section>
+        <section className={`${styles.formSection} container`}>
+          <h2>{contact.title}</h2>
+          <div
+            className={styles.description}
+            dangerouslySetInnerHTML={{ __html: contact.description }}
+          />
+          <Form />
+        </section>
       </main>
     </div>
   );
@@ -416,6 +424,10 @@ export async function getStaticProps({ locale }) {
                     title(format: RENDERED)
                   }
                 }
+              }
+              contact {
+                title
+                description
               }
               isFrontPage
             }

@@ -10,7 +10,7 @@ import menuIconDark from "../assets/menu-icon-dark.svg";
 import logoWhite from "../assets/logo-white.svg";
 import logoDark from "../assets/logo-dark.svg";
 
-import styles from "../components/Navbar.module.scss";
+import styles from "../styles/Navbar.module.scss";
 import Navlist from "./Navlist";
 
 export default function Navbar() {

@@ -315,7 +315,6 @@
     line-height: 80px;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    margin-bottom: 8px;
     margin-bottom: 32px;
   }
 
@@ -346,5 +345,31 @@
   img {
     width: 100%;
     height: auto;
+  }
+}
+
+.formSection {
+  padding: 57px 0 0;
+  border-top: 2px solid #fff;
+  margin-top: 61px;
+
+  h2 {
+    font-family: var(--font-belleza);
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 80px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 19px;
+    text-align: center;
+  }
+
+  .description {
+    font-family: var(--font-spectral);
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 44px;
+    text-align: center;
+    margin-bottom: 84px;
   }
 }
