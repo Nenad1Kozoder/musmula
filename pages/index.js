@@ -3,10 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { gql } from "@apollo/client";
 import pecat from "../assets/pecat.svg";
+import Cf7FormWrapper from "../components/cf7-form-wrapper";
 
 import { getApolloClient } from "../lib/apollo-client";
 
 import styles from "../styles/Home.module.scss";
+import Form from "../components/Form";
 
 export default function Home({ page, galleries, general }) {
   const { title, description } = general;
@@ -240,6 +242,9 @@ export default function Home({ page, galleries, general }) {
             sizes={"100vw"}
             alt={about.image.node.title}
           />
+        </section>
+        <section>
+          <Form />
         </section>
       </main>
     </div>
