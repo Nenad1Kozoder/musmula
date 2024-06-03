@@ -8,6 +8,7 @@ import { getApolloClient } from "../lib/apollo-client";
 
 import styles from "../styles/Home.module.scss";
 import Form from "../components/Form";
+import InstaFeed from "../components/instaFeed";
 
 export default function Home({ page, galleries, general }) {
   const { title, description } = general;
@@ -242,6 +243,9 @@ export default function Home({ page, galleries, general }) {
             sizes={"100vw"}
             alt={about.image.node.title}
           />
+        </section>
+        <section>
+          <InstaFeed />
         </section>
         <section className={`${styles.formSection} container`}>
           <h2>{contact.title}</h2>
