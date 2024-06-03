@@ -244,9 +244,9 @@ export default function Home({ page, galleries, general }) {
             alt={about.image.node.title}
           />
         </section>
-        <section>
+        {/* <section>
           <InstaFeed />
-        </section>
+        </section> */}
         <section className={`${styles.formSection} container`}>
           <h2>{contact.title}</h2>
           <div
