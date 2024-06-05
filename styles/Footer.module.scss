@@ -1,3 +1,5 @@
+@import "./breakpoints.scss";
+
 .footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -9,9 +11,20 @@
   font-size: 20px;
   line-height: 20px;
 
-  // @media screen and (max-width: 359px) {
-  //   grid-template-columns: auto 1fr;
-  // }
+  @include mobile {
+    grid-template-columns: auto 1fr;
+    gap: 30px 10px;
+    font-size: 16px;
+
+    nav {
+      grid-column: span 2;
+      grid-row: 1;
+
+      li {
+        text-align: left;
+      }
+    }
+  }
 }
 
 .copyrigh {
@@ -26,6 +39,10 @@
 
   img {
     transition: transform 0.1s ease-in;
+
+    @include mobile {
+      width: 35px;
+    }
 
     &:hover {
       cursor: pointer;

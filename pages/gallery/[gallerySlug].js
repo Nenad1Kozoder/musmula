@@ -24,11 +24,11 @@ export default function Gallery({ gallery, site }) {
       <main className={styles.main}>
         <Image
           className={styles.headerImage}
-          src={gallery.translation.featuredImage.node.sourceUrl}
+          src={gallery.translation.galleryFields.headerImage.node.sourceUrl}
           width={0}
           height={0}
           sizes="100vw"
-          alt={gallery.translation.featuredImage.node.title}
+          alt={gallery.translation.galleryFields.headerImage.node.title}
         />
         <div className={styles.eventData}>
           <h1>{gallery.translation.title}</h1>
@@ -96,6 +96,12 @@ export async function getStaticProps({ params, locale }) {
               author
               location
               client
+              headerImage {
+                node {
+                  sourceUrl
+                  title
+                }
+              }
             }
             featuredImage {
               node {

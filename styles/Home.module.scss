@@ -1,15 +1,47 @@
+@import "./breakpoints.scss";
+
 .headerHolder {
   position: relative;
+  width: 100%;
+  aspect-ratio: 100 / 67;
+  overflow: hidden;
+
+  @include tablet-portrait {
+    aspect-ratio: 360 / 640;
+  }
+
+  @include mobile-narrow {
+    aspect-ratio: 100 / 67;
+  }
+
+  @include mobile-portrait {
+    aspect-ratio: 360 / 640;
+  }
 }
 
 .headerImage {
   width: 100%;
   height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include tablet-portrait {
+    height: 100%;
+    width: auto;
+  }
+
+  @include mobile-portrait {
+    height: 100%;
+    width: auto;
+  }
 }
 
 .headerTitle {
   font-family: var(--font-spectral);
   font-size: 96px;
+  line-height: 110px;
   font-weight: 300;
   font-style: italic;
   position: absolute;
@@ -20,6 +52,21 @@
   left: 50%;
   transform: translate(-50%, -50%);
   filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
+
+  @include tablet {
+    font-size: 78px;
+    line-height: 84px;
+  }
+
+  @include mobile {
+    font-size: 40px;
+    line-height: 42px;
+  }
+
+  @include mobile-portrait {
+    font-size: 60px;
+    line-height: 63px;
+  }
 }
 
 .topSection {
@@ -27,7 +74,18 @@
   display: flex;
   flex-direction: column;
   max-width: 1280px;
-  margin: 0 auto;
+
+  @include desktop {
+    padding: 110px 20px 76px;
+  }
+
+  @include tablet {
+    padding: 50px 10px 64px;
+  }
+
+  @include mobile {
+    padding: 33px 0 48px;
+  }
 }
 
 .titleHolder {
@@ -45,13 +103,34 @@
   font-size: 48px;
   font-weight: 400;
   color: #000;
+
+  @include tablet {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  @include mobile {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
 }
 
 .topSubtitle {
   text-align: right;
   font-family: var(--font-belleza);
   font-size: 26px;
+  line-height: 30px;
   font-weight: 400;
+
+  @include tablet {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
+  @include mobile {
+    font-size: 18px;
+    line-height: 21px;
+  }
 }
 
 .topDescription {
@@ -59,6 +138,22 @@
   grid-template-columns: 48.75% 37.75%;
   margin-top: 170px;
   grid-gap: 14.5%;
+
+  @include desktop {
+    grid-template-columns: 52.75% 39.75%;
+    margin-top: 120px;
+    grid-gap: 7.5%;
+  }
+
+  @include tablet {
+    margin-top: 60px;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-gap: 48px;
+    margin-top: 26px;
+  }
 
   img {
     width: 100%;
@@ -71,6 +166,10 @@
     justify-content: center;
     padding-right: 50px;
 
+    @include tablet {
+      padding-right: 25px;
+    }
+
     h2 {
       font-family: var(--font-spectral);
       font-size: 60px;
@@ -78,6 +177,16 @@
       font-weight: 300;
       line-height: 70px;
       margin-bottom: 34px;
+
+      @include tablet {
+        font-size: 48px;
+        line-height: 56px;
+      }
+
+      @include mobile {
+        font-size: 38px;
+        line-height: 46px;
+      }
     }
 
     p {
@@ -85,6 +194,16 @@
       font-size: 22px;
       font-weight: 400;
       line-height: 30px;
+
+      @include tablet {
+        font-size: 18px;
+        line-height: 26px;
+      }
+
+      @include mobile {
+        font-size: 16px;
+        line-height: 24px;
+      }
     }
   }
 }
@@ -92,6 +211,14 @@
 .greenSection {
   padding: 174px 80px 165px;
   background: #b7cfbc;
+
+  @include tablet {
+    padding: 87px 40px;
+  }
+
+  @include mobile {
+    padding: 50px 20px;
+  }
 
   .greenSectionFlex {
     display: flex;
@@ -107,11 +234,25 @@
     font-weight: 300;
     font-style: italic;
     margin-bottom: 55px;
+
+    @include tablet {
+      font-size: 45px;
+      line-height: 58px;
+    }
+
+    @include mobile {
+      font-size: 30px;
+      line-height: 38px;
+    }
   }
 
   img {
     width: 200px;
     height: auto;
+
+    @include mobile {
+      width: 150px;
+    }
   }
 }
 
@@ -122,10 +263,19 @@
   grid-gap: 8.3%;
   border-bottom: 2px solid #fff;
 
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-gap: 48px;
+  }
+
   .secondDesHolder {
     display: flex;
     flex-direction: column;
     padding-left: 13.48%;
+
+    @include mobile {
+      padding-left: 0;
+    }
 
     h2 {
       font-family: var(--font-belleza);
@@ -135,6 +285,16 @@
       letter-spacing: 0.02em;
       text-transform: uppercase;
       margin-bottom: 8px;
+
+      @include tablet {
+        font-size: 42px;
+        line-height: 48px;
+      }
+
+      @include mobile {
+        font-size: 28px;
+        line-height: 33px;
+      }
     }
 
     p {
@@ -143,6 +303,16 @@
       font-style: italic;
       font-weight: 300;
       line-height: 50px;
+
+      @include tablet {
+        font-size: 32px;
+        line-height: 38px;
+      }
+
+      @include mobile {
+        font-size: 22px;
+        line-height: 28px;
+      }
     }
 
     img {
@@ -155,6 +325,11 @@
   img {
     width: 100%;
     height: auto;
+
+    @include mobile {
+      grid-column: 1;
+      grid-row: 1;
+    }
   }
 }
 
@@ -171,6 +346,16 @@
     margin-bottom: 8px;
     text-align: center;
     margin-bottom: 32px;
+
+    @include tablet {
+      font-size: 42px;
+      line-height: 48px;
+    }
+
+    @include mobile {
+      font-size: 28px;
+      line-height: 33px;
+    }
   }
 
   p {
@@ -181,12 +366,26 @@
     line-height: 45px;
     text-align: center;
     margin-bottom: 45px;
+
+    @include tablet {
+      font-size: 20px;
+      line-height: 32px;
+    }
+
+    @include mobile {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   .threeImages {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 31px;
+
+    @include desktop {
+      gap: 10px;
+    }
   }
 
   .twoImages {
@@ -207,6 +406,10 @@
   flex-direction: column;
   align-items: center;
 
+  @include tablet {
+    padding-bottom: 77px;
+  }
+
   .galleryTitle {
     font-family: var(--font-belleza);
     font-size: 60px;
@@ -216,6 +419,16 @@
     text-align: center;
     margin-bottom: 47px;
     text-transform: uppercase;
+
+    @include tablet {
+      font-size: 42px;
+      line-height: 48px;
+    }
+
+    @include mobile {
+      font-size: 28px;
+      line-height: 33px;
+    }
   }
 
   .galleryLink {
@@ -226,7 +439,15 @@
     text-align: center;
     margin-top: 84px;
     text-transform: uppercase;
-    color: #000;
+
+    @include tablet {
+      margin-top: 54px;
+    }
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 23px;
+    }
   }
 
   .galleryHolder {
@@ -235,30 +456,57 @@
     gap: 31px;
     width: 100%;
 
-    .imgHolder {
-      aspect-ratio: 406/600;
-      overflow: hidden;
-      position: relative;
-      margin: 0 0 22px;
+    @include desktop {
+      gap: 10px;
     }
 
-    img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 100%;
-      max-width: none;
-      height: auto;
-      min-height: 100%;
+    @include mobile {
+      grid-template-columns: 1fr;
     }
 
-    h3 {
-      font-family: var(--font-spectral);
-      font-size: 28px;
-      font-weight: 300;
-      line-height: 30px;
-      color: #000;
+    .galleryPageLink {
+      .imgHolder {
+        aspect-ratio: 406/600;
+        overflow: hidden;
+        position: relative;
+        margin: 0 0 22px;
+      }
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        max-width: none;
+        height: auto;
+        min-height: 100%;
+        background: #b7cfbc;
+
+        transition: opacity 0.2s ease-in-out;
+      }
+
+      h3 {
+        font-family: var(--font-spectral);
+        font-size: 28px;
+        font-weight: 300;
+        line-height: 30px;
+        color: #000;
+        transition: color 0.2s ease-in-out;
+
+        @include tablet {
+          font-size: 24px;
+          line-height: 28px;
+        }
+      }
+      &:hover {
+        img {
+          opacity: 0.8;
+        }
+        h3 {
+          color: #b7cfbc;
+        }
+      }
     }
   }
 }
@@ -275,15 +523,25 @@
 
 .published {
   padding: 58px 0 146px;
+
+  @include mobile {
+    padding: 50px 0;
+  }
+
   h3 {
     font-family: var(--font-belleza);
     font-size: 26px;
     font-weight: 400;
     line-height: 40px;
     text-align: center;
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 33px;
+    }
   }
 
-  .logoHolder {
+  .logosHolder {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 150px;
@@ -292,9 +550,24 @@
     max-width: 980px;
     margin: 100px auto 0;
 
+    @include mobile {
+      gap: 50px;
+      margin: 50px 0 0;
+    }
+
+    @include mobile-portrait {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .logoHolder {
+      position: relative;
+    }
+
     img {
       width: 100%;
-      height: auto;
+      position: relative !important;
+      object-fit: scale-down;
     }
   }
 }
@@ -304,8 +577,21 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+
   .aboutHolder {
     padding: 65px 66px 80px 70px;
+
+    @include tablet {
+      padding: 48px 20px;
+    }
+
+    @include mobile {
+      grid-row: 2;
+      padding: 40px 20px;
+    }
   }
 
   h2 {
@@ -316,6 +602,17 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
     margin-bottom: 32px;
+
+    @include tablet {
+      font-size: 42px;
+      line-height: 48px;
+      margin-bottom: 24px;
+    }
+
+    @include mobile {
+      font-size: 28px;
+      line-height: 33px;
+    }
   }
 
   .textHolder {
@@ -323,6 +620,11 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 26px;
+
+    @include tablet {
+      font-size: 18px;
+      line-height: 23px;
+    }
 
     p {
       margin-bottom: 26px;
@@ -340,6 +642,11 @@
     font-style: italic;
     font-weight: 300;
     line-height: 44px;
+
+    @include tablet {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
 
   img {
@@ -362,6 +669,17 @@
     text-transform: uppercase;
     margin-bottom: 19px;
     text-align: center;
+
+    @include tablet {
+      font-size: 42px;
+      line-height: 48px;
+      margin-bottom: 24px;
+    }
+
+    @include mobile {
+      font-size: 28px;
+      line-height: 33px;
+    }
   }
 
   .description {
@@ -371,5 +689,39 @@
     line-height: 44px;
     text-align: center;
     margin-bottom: 84px;
+
+    @include tablet {
+      font-size: 24px;
+      line-height: 28px;
+      margin-bottom: 64px;
+    }
+
+    @include mobile {
+      font-size: 16px;
+      line-height: 17px;
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.instaSection {
+  padding-top: 57px;
+
+  .instaTitle {
+    font-family: var(--font-belleza);
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 44px;
+    text-align: center;
+
+    @include tablet {
+      font-size: 18px;
+    }
+  }
+
+  p {
+    color: red;
+    text-align: center;
+    margin-top: 40px;
   }
 }

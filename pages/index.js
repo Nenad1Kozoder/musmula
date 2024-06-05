@@ -32,7 +32,7 @@ export default function Home({ page, galleries, general }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="pecat.svg" />
       </Head>
 
       <main className={styles.main}>
@@ -159,7 +159,7 @@ export default function Home({ page, galleries, general }) {
               galleries.length > 0 &&
               galleries.map((gallery) => (
                 <div key={gallery.uri} className="card">
-                  <Link href={gallery.uri}>
+                  <Link href={gallery.uri} className={styles.galleryPageLink}>
                     <div className={styles.imgHolder}>
                       <Image
                         src={gallery.featuredImage.node.sourceUrl}
@@ -202,28 +202,31 @@ export default function Home({ page, galleries, general }) {
         </section>
         <section className={`${styles.published} container`}>
           <h3>{published.title}</h3>
-          <div className={styles.logoHolder}>
-            <Image
-              src={published.news.imageOne.node.sourceUrl}
-              width={0}
-              height={0}
-              sizes={published.news.imageOne.node.sizes}
-              alt={published.news.imageOne.node.title}
-            />
-            <Image
-              src={published.news.imageTwo.node.sourceUrl}
-              width={0}
-              height={0}
-              sizes={published.news.imageTwo.node.sizes}
-              alt={published.news.imageTwo.node.title}
-            />
-            <Image
-              src={published.news.imageThree.node.sourceUrl}
-              width={0}
-              height={0}
-              sizes={published.news.imageThree.node.sourceUrl}
-              alt={published.news.imageThree.node.title}
-            />
+          <div className={styles.logosHolder}>
+            <div className={styles.logoHolder}>
+              <Image
+                fill
+                src={published.news.imageOne.node.sourceUrl}
+                sizes={published.news.imageOne.node.sizes}
+                alt={published.news.imageOne.node.title}
+              />
+            </div>
+            <div className={styles.logoHolder}>
+              <Image
+                fill
+                src={published.news.imageTwo.node.sourceUrl}
+                sizes={published.news.imageTwo.node.sizes}
+                alt={published.news.imageTwo.node.title}
+              />
+            </div>
+            <div className={styles.logoHolder}>
+              <Image
+                fill
+                src={published.news.imageThree.node.sourceUrl}
+                sizes={published.news.imageThree.node.sourceUrl}
+                alt={published.news.imageThree.node.title}
+              />
+            </div>
           </div>
         </section>
         <section className={`${styles.about} container`}>
@@ -244,9 +247,10 @@ export default function Home({ page, galleries, general }) {
             alt={about.image.node.title}
           />
         </section>
-        {/* <section>
+        <section className={styles.instaSection}>
+          <h2 className={styles.instaTitle}>Pratite nas — @studiomusmula</h2>
           <InstaFeed />
-        </section> */}
+        </section>
         <section className={`${styles.formSection} container`}>
           <h2>{contact.title}</h2>
           <div
@@ -432,6 +436,9 @@ export async function getStaticProps({ locale }) {
               contact {
                 title
                 description
+              }
+              instagram {
+                title
               }
               isFrontPage
             }

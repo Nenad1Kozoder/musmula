@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../styles/Navlist.module.scss";
 
-export default function Navlist({ size, closeMenu }) {
+export default function Navlist({ size, closeMenu, isFooter }) {
   function menuClose() {
     size === "large" && closeMenu();
   }

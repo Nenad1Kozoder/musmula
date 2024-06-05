@@ -5,12 +5,12 @@ import Footer from "../components/Footer";
 
 export const spectral = Spectral({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400"],
   variable: "--font-spectral",
 });
 export const belleza = Belleza({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400"],
   variable: "--font-belleza",
 });
 

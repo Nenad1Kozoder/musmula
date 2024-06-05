@@ -44,13 +44,23 @@ export default function Navbar() {
 
           <ul className={styles.langSwitch}>
             <li>
-              <Link href={asPath} locale={"sr"} className={styles.toggle}>
+              <Link
+                href={asPath}
+                locale={"sr"}
+                onClick={menuOff}
+                className={styles.toggle}
+              >
                 Srpski
               </Link>
             </li>
             <li>|</li>
             <li>
-              <Link href={asPath} locale={"en"} className={styles.toggle}>
+              <Link
+                href={asPath}
+                locale={"en"}
+                onClick={menuOff}
+                className={styles.toggle}
+              >
                 English
               </Link>
             </li>
@@ -66,13 +76,15 @@ export default function Navbar() {
         </div>
       </div>
       <div className={styles.transparentHolder}>
-        <Image
-          src={isHome ? logoWhite : logoDark}
-          width={350}
-          height={32}
-          alt={"logo"}
-          className={styles.logo}
-        />
+        <Link onClick={menuOff} href="/">
+          <Image
+            src={isHome ? logoWhite : logoDark}
+            width={350}
+            height={32}
+            alt={"logo"}
+            className={styles.logo}
+          />
+        </Link>
         <Image
           className={styles.menuIcon}
           onClick={menuHandler}

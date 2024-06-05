@@ -8,6 +8,11 @@ module.exports = {
         port: "",
         pathname: "/wp-content/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "*.cdninstagram.com",
+        port: "",
+      },
     ],
   },
   i18n: {
