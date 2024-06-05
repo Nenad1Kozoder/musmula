@@ -24,7 +24,7 @@ export default function Events({ galleries, general }) {
             galleries.length > 0 &&
             galleries.map((gallery) => (
               <div key={gallery.uri}>
-                <Link href={gallery.uri}>
+                <Link href={gallery.uri} className={styles.galleryLink}>
                   <div className={styles.imgHolder}>
                     <Image
                       src={gallery.featuredImage.node.sourceUrl}

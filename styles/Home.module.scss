@@ -2,8 +2,8 @@
 
 .headerHolder {
   position: relative;
-  width: 100%;
-  aspect-ratio: 100 / 67;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 
   @include tablet-portrait {
@@ -20,7 +20,11 @@
 }
 
 .headerImage {
-  width: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  max-width: none;
+  max-height: none;
+  width: auto;
   height: auto;
   position: absolute;
   top: 50%;
@@ -482,7 +486,6 @@
         height: auto;
         min-height: 100%;
         background: #b7cfbc;
-
         transition: opacity 0.2s ease-in-out;
       }
 

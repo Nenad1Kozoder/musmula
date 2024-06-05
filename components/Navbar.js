@@ -36,8 +36,14 @@ export default function Navbar() {
         }`}
       >
         <div className={styles.navbarContentHolder}>
-          <Link onClick={menuOff} href="/" className={styles.logo}>
-            <Image src={logoDark} width={350} height={32} alt={"logo"} />
+          <Link onClick={menuOff} href="/">
+            <Image
+              src={logoDark}
+              className={styles.logo}
+              width={350}
+              height={32}
+              alt={"logo"}
+            />
           </Link>
 
           <Navlist size="large" closeMenu={menuHandler} />

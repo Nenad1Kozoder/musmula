@@ -9,6 +9,7 @@ import { getApolloClient } from "../lib/apollo-client";
 import styles from "../styles/Home.module.scss";
 import Form from "../components/Form";
 import InstaFeed from "../components/instaFeed";
+import { Fragment } from "react";
 
 export default function Home({ page, galleries, general }) {
   const { title, description } = general;
@@ -28,7 +29,7 @@ export default function Home({ page, galleries, general }) {
   } = page;
 
   return (
-    <div>
+    <Fragment>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -158,7 +159,7 @@ export default function Home({ page, galleries, general }) {
             {galleries &&
               galleries.length > 0 &&
               galleries.map((gallery) => (
-                <div key={gallery.uri} className="card">
+                <div key={gallery.uri}>
                   <Link href={gallery.uri} className={styles.galleryPageLink}>
                     <div className={styles.imgHolder}>
                       <Image
@@ -260,7 +261,7 @@ export default function Home({ page, galleries, general }) {
           <Form />
         </section>
       </main>
-    </div>
+    </Fragment>
   );
 }
 

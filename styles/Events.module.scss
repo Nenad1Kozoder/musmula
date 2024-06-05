@@ -2,6 +2,10 @@
 
 .main {
   padding-top: 166px;
+
+  @include tablet {
+    padding-top: 75px;
+  }
 }
 
 .grid {
@@ -16,36 +20,50 @@
     grid-template-columns: 1fr;
   }
 
-  .imgHolder {
-    aspect-ratio: 406/600;
-    overflow: hidden;
-    position: relative;
-    margin: 0 0 22px;
-  }
+  .galleryLink {
+    .imgHolder {
+      aspect-ratio: 406/600;
+      overflow: hidden;
+      position: relative;
+      margin: 0 0 22px;
+    }
 
-  img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    max-width: none;
-    height: auto;
-    min-height: 100%;
-    width: 100%;
-    margin: 0 0 20px;
-  }
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      max-width: none;
+      height: auto;
+      min-height: 100%;
+      width: 100%;
+      margin: 0 0 20px;
+      background: #b7cfbc;
+      transition: opacity 0.2s ease-in-out;
+    }
 
-  .title {
-    font-family: var(--font-spectral);
-    font-size: 28px;
-    font-weight: 300;
-    line-height: 30px;
-    color: #000;
+    .title {
+      font-family: var(--font-spectral);
+      font-size: 28px;
+      font-weight: 300;
+      line-height: 30px;
+      color: #000;
+      transition: color 0.2s ease-in-out;
 
-    @include tablet {
-      font-size: 24px;
-      line-height: 28px;
+      @include tablet {
+        font-size: 24px;
+        line-height: 28px;
+      }
+    }
+
+    &:hover {
+      img {
+        opacity: 0.8;
+      }
+      .title {
+        color: #b7cfbc;
+      }
     }
   }
 }

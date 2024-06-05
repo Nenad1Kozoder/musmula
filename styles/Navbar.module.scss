@@ -19,6 +19,12 @@
   z-index: 2;
 }
 
+.logo {
+  @include mobile {
+    max-width: 150px;
+  }
+}
+
 .isVisible {
   transform: scale(1);
 }
@@ -30,7 +36,11 @@
   align-items: center;
   height: 100%;
   justify-content: space-between;
-  padding: 50px 0 80px;
+  padding: 63px 0 80px;
+
+  @include tablet {
+    padding: 20px 0 40px;
+  }
 }
 
 .langSwitch {
@@ -42,12 +52,22 @@
   gap: 20px;
   text-transform: uppercase;
   font-size: 36px;
+
+  @include tablet {
+    font-size: 18px;
+  }
 }
 
 .close {
   position: absolute;
-  top: 55px;
-  right: 74px;
+  top: 66px;
+  right: 59px;
+
+  @include tablet {
+    max-width: 20px;
+    top: 22px;
+    right: 20px;
+  }
 }
 
 .transparentHolder {
@@ -56,25 +76,20 @@
   justify-content: center;
   margin-top: 63px;
 
-  @include mobile {
-    margin-top: 51px;
-  }
-
-  img {
-    @include mobile {
-      max-width: 150px;
-    }
+  @include tablet {
+    margin-top: 20px;
   }
 }
 
 .menuIcon {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   right: 59px;
   width: auto;
   height: auto;
 
-  @include mobile {
+  @include tablet {
     max-width: 20px;
     right: 20px;
   }

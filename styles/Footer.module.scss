@@ -5,16 +5,29 @@
   grid-template-columns: repeat(3, 1fr);
   border-top: 2px solid #fff;
   padding: 60px 0 50px;
-  margin-top: 56px;
+  margin: 56px 80px 0;
   color: #000;
   font-family: var(--font-belleza);
   font-size: 20px;
   line-height: 20px;
 
+  @include desktop {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+  }
+
+  @media screen and (max-width: 1279px) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   @include mobile {
     grid-template-columns: auto 1fr;
     gap: 30px 10px;
     font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
 
     nav {
       grid-column: span 2;

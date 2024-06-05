@@ -14,7 +14,7 @@ export default function Footer() {
   }
 
   return (
-    <div className={`${styles.footer} container`}>
+    <div className={styles.footer}>
       <div className={styles.copyrigh}>
         <p>© STUDIO MUŠMULA 2024.</p>
         <p>ALL RIGHTS RESERVED</p>
