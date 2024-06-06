@@ -26,13 +26,17 @@ export default function Home({ page, galleries, general }) {
     twoLargeImage,
     about,
     contact,
+    seo,
   } = page;
 
   return (
     <Fragment>
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{seo.title ? seo.title : title}</title>
+        <meta
+          name="description"
+          content={seo.description ? seo.description : description}
+        />
         <link rel="icon" href="pecat.svg" />
       </Head>
 
@@ -299,56 +303,118 @@ export async function getStaticProps({ locale }) {
         pages(where: { language: $language }) {
           edges {
             node {
-              homepageMessage {
-                headerMessage
-              }
-              featuredImage {
-                node {
-                  sourceUrl(size: LARGE)
-                  title(format: RENDERED)
+              ... on Page {
+                homepageMessage {
+                  headerMessage
                 }
-              }
-              homepageTopPageMessage {
-                topPageMessage
-                messageSubtitle
-              }
-              imageAndTextFirst {
-                title
-                description
-                image {
+                featuredImage {
                   node {
-                    sourceUrl
+                    sourceUrl(size: LARGE)
                     title(format: RENDERED)
                   }
                 }
-              }
-              imageAndTextSecond {
-                title
-                description
-                image {
-                  node {
-                    sourceUrl
-                    title(format: RENDERED)
+                homepageTopPageMessage {
+                  topPageMessage
+                  messageSubtitle
+                }
+                imageAndTextFirst {
+                  title
+                  description
+                  image {
+                    node {
+                      sourceUrl
+                      title(format: RENDERED)
+                    }
                   }
                 }
-              }
-              greenSection {
-                message
-                imageLogo {
-                  node {
-                    sourceUrl
-                    title(format: RENDERED)
+                imageAndTextSecond {
+                  title
+                  description
+                  image {
+                    node {
+                      sourceUrl
+                      title(format: RENDERED)
+                    }
                   }
                 }
-              }
-              gallerySection {
-                linkText
-                title
-              }
-              whatWeAreDoing {
-                description
-                title
-                threeImages {
+                greenSection {
+                  message
+                  imageLogo {
+                    node {
+                      sourceUrl
+                      title(format: RENDERED)
+                    }
+                  }
+                }
+                gallerySection {
+                  linkText
+                  title
+                }
+                whatWeAreDoing {
+                  description
+                  title
+                  threeImages {
+                    imageOne {
+                      node {
+                        sourceUrl
+                        title(format: RENDERED)
+                      }
+                    }
+                    imageTwo {
+                      node {
+                        sourceUrl
+                        title(format: RENDERED)
+                      }
+                    }
+                    imageThree {
+                      node {
+                        sourceUrl
+                        title(format: RENDERED)
+                      }
+                    }
+                  }
+                  twoImages {
+                    imageOne {
+                      node {
+                        sourceUrl
+                        title(format: RENDERED)
+                      }
+                    }
+                    imageTwo {
+                      node {
+                        sourceUrl
+                        title(format: RENDERED)
+                      }
+                    }
+                  }
+                }
+                published {
+                  title
+                  news {
+                    imageOne {
+                      node {
+                        sizes
+                        sourceUrl
+                        title(format: RENDERED)
+                      }
+                    }
+                    imageTwo {
+                      node {
+                        sizes
+                        sourceUrl
+                        title(format: RENDERED)
+                      }
+                    }
+                    imageThree {
+                      node {
+                        sizes
+                        sourceUrl
+                        title(format: RENDERED)
+                      }
+                    }
+                  }
+                }
+                twoLargeImage {
                   imageOne {
                     node {
                       sourceUrl
@@ -361,87 +427,31 @@ export async function getStaticProps({ locale }) {
                       title(format: RENDERED)
                     }
                   }
-                  imageThree {
+                }
+                about {
+                  title
+                  description
+                  subscription
+                  image {
                     node {
                       sourceUrl
                       title(format: RENDERED)
                     }
                   }
                 }
-                twoImages {
-                  imageOne {
-                    node {
-                      sourceUrl
-                      title(format: RENDERED)
-                    }
-                  }
-                  imageTwo {
-                    node {
-                      sourceUrl
-                      title(format: RENDERED)
-                    }
-                  }
+                contact {
+                  title
+                  description
                 }
-              }
-              published {
-                title
-                news {
-                  imageOne {
-                    node {
-                      sizes
-                      sourceUrl
-                      title(format: RENDERED)
-                    }
-                  }
-                  imageTwo {
-                    node {
-                      sizes
-                      sourceUrl
-                      title(format: RENDERED)
-                    }
-                  }
-                  imageThree {
-                    node {
-                      sizes
-                      sourceUrl
-                      title(format: RENDERED)
-                    }
-                  }
+                instagram {
+                  title
                 }
-              }
-              twoLargeImage {
-                imageOne {
-                  node {
-                    sourceUrl
-                    title(format: RENDERED)
-                  }
+                seo {
+                  description
+                  title
                 }
-                imageTwo {
-                  node {
-                    sourceUrl
-                    title(format: RENDERED)
-                  }
-                }
+                isFrontPage
               }
-              about {
-                title
-                description
-                subscription
-                image {
-                  node {
-                    sourceUrl
-                    title(format: RENDERED)
-                  }
-                }
-              }
-              contact {
-                title
-                description
-              }
-              instagram {
-                title
-              }
-              isFrontPage
             }
           }
         }

@@ -13,10 +13,18 @@ export default function Gallery({ gallery, site }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>{gallery.title}</title>
+        <title>
+          {gallery.translation.seo.title
+            ? gallery.translation.seo.title
+            : gallery.title}
+        </title>
         <meta
           name="description"
-          content={`Read more about ${gallery.title} on ${site.title}`}
+          content={
+            gallery.translation.seo.description
+              ? gallery.translation.seo.description
+              : `Read more about ${gallery.title} on ${site.title}`
+          }
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -108,6 +116,10 @@ export async function getStaticProps({ params, locale }) {
                 sourceUrl(size: LARGE)
                 title(format: RAW)
               }
+            }
+            seo {
+              description
+              title
             }
           }
         }

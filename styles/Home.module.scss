@@ -270,6 +270,7 @@
   @include mobile {
     grid-template-columns: 1fr;
     grid-gap: 48px;
+    padding: 39px 0 57px;
   }
 
   .secondDesHolder {
@@ -396,6 +397,10 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 82px;
+
+    @include desktop {
+      margin-top: 21px;
+    }
   }
 
   img {
@@ -466,6 +471,7 @@
 
     @include mobile {
       grid-template-columns: 1fr;
+      gap: 35px;
     }
 
     .galleryPageLink {
@@ -473,7 +479,11 @@
         aspect-ratio: 406/600;
         overflow: hidden;
         position: relative;
-        margin: 0 0 22px;
+        margin-bottom: 22px;
+
+        @include mobile {
+          margin-bottom: 10px;
+        }
       }
 
       img {

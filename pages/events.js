@@ -7,14 +7,17 @@ import { getApolloClient } from "../lib/apollo-client";
 
 import styles from "../styles/Events.module.scss";
 
-export default function Events({ galleries, general }) {
+export default function Events({ galleries, general, seo }) {
   const { title, description } = general;
 
   return (
     <div>
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{seo.title ? seo.title : title}</title>
+        <meta
+          name="description"
+          content={seo.description ? seo.description : description}
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -81,6 +84,18 @@ export async function getStaticProps({ locale }) {
           title
           description
         }
+        pages(where: { language: $language }) {
+          edges {
+            node {
+              ... on Page {
+                seo {
+                  description
+                  title
+                }
+              }
+            }
+          }
+        }
       }
     `,
     variables: {
@@ -103,10 +118,17 @@ export async function getStaticProps({ locale }) {
     ...data?.data.generalSettings,
   };
 
+  const seo = {
+    ...data?.data.pages.edges[0].node.seo,
+    // data.pages.edges.length > 0 ? data.pages.edges[0].node.seo : {}
+  };
+
+  console.log(seo);
   return {
     props: {
       galleries,
       general,
+      seo,
     },
   };
 }
