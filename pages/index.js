@@ -196,7 +196,7 @@ export default function Home({ page, galleries, general }) {
                 ))}
             </div>
             <Link href="/events" className={styles.galleryLink}>
-              {gallerySection.linkText}
+              <button>{gallerySection.linkText}</button>
             </Link>
           </section>
         </Transition>
@@ -274,6 +274,8 @@ export default function Home({ page, galleries, general }) {
             <h2 className={styles.instaTitle}>Pratite nas — @studiomusmula</h2>
             <InstaFeed />
           </section>
+        </Transition>
+        <Transition>
           <section className={`${styles.formSection} container`}>
             <h2>{contact.title}</h2>
             <div
