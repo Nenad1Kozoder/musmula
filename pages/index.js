@@ -10,6 +10,7 @@ import styles from "../styles/Home.module.scss";
 import Form from "../components/Form";
 import InstaFeed from "../components/instaFeed";
 import { Fragment } from "react";
+import Transition from "../components/Transition";
 
 export default function Home({ page, galleries, general }) {
   const { title, description } = general;
@@ -54,216 +55,234 @@ export default function Home({ page, galleries, general }) {
             {homepageMessage.headerMessage}
           </h2>
         </section>
-        <section
-          className={`${styles.topSection} container`}
-          id="what-are-we-doing"
-        >
-          <div className={styles.titleHolder}>
-            <h1 className={styles.topTitle}>
-              {homepageTopPageMessage.topPageMessage}
-            </h1>
-            <h4 className={styles.topSubtitle}>
-              {homepageTopPageMessage.messageSubtitle}
-            </h4>
-          </div>
-          <div className={styles.topDescription}>
-            <Image
-              src={imageAndTextFirst.image.node.sourceUrl}
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt={imageAndTextFirst.image.node.title}
-            />
-            <div className={styles.topTitleHolder}>
-              <h2>{imageAndTextFirst.title}</h2>
-              <p>{imageAndTextFirst.description}</p>
+        <Transition>
+          <section
+            className={`${styles.topSection} container`}
+            id="what-are-we-doing"
+          >
+            <div className={styles.titleHolder}>
+              <h1 className={styles.topTitle}>
+                {homepageTopPageMessage.topPageMessage}
+              </h1>
+              <h4 className={styles.topSubtitle}>
+                {homepageTopPageMessage.messageSubtitle}
+              </h4>
             </div>
-          </div>
-        </section>
-        <section className={styles.greenSection}>
-          <div className={`${styles.greenSectionFlex} container`}>
-            <p>{`"${greenSection.message}"`}</p>
-            <Image
-              src={greenSection.imageLogo.node.sourceUrl}
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt={greenSection.imageLogo.node.title}
-            />
-          </div>
-        </section>
-        <section className={`${styles.secondDescription} container`}>
-          <div className={styles.secondDesHolder}>
-            <h2>{imageAndTextSecond.title}</h2>
-            <p>{imageAndTextSecond.description}</p>
-            <Image
-              src={pecat}
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt={"musmula"}
-            />
-          </div>
-          <Image
-            src={imageAndTextSecond.image.node.sourceUrl}
-            width={0}
-            height={0}
-            sizes="100vw"
-            alt={imageAndTextSecond.image.node.title}
-          />
-        </section>
-        <section className={styles.whatWeDo}>
-          <div className="container">
-            <h2>{whatWeAreDoing.title}</h2>
-            <p>{whatWeAreDoing.description}</p>
-            <div className={styles.threeImages}>
+            <div className={styles.topDescription}>
               <Image
-                src={whatWeAreDoing.threeImages.imageOne.node.sourceUrl}
+                src={imageAndTextFirst.image.node.sourceUrl}
                 width={0}
                 height={0}
                 sizes="100vw"
-                alt={whatWeAreDoing.threeImages.imageOne.node.title}
+                alt={imageAndTextFirst.image.node.title}
               />
+              <div className={styles.topTitleHolder}>
+                <h2>{imageAndTextFirst.title}</h2>
+                <p>{imageAndTextFirst.description}</p>
+              </div>
+            </div>
+          </section>
+        </Transition>
+        <Transition>
+          <section className={styles.greenSection}>
+            <div className={`${styles.greenSectionFlex} container`}>
+              <p>{`"${greenSection.message}"`}</p>
               <Image
-                src={whatWeAreDoing.threeImages.imageTwo.node.sourceUrl}
+                src={greenSection.imageLogo.node.sourceUrl}
                 width={0}
                 height={0}
                 sizes="100vw"
-                alt={whatWeAreDoing.threeImages.imageTwo.node.title}
+                alt={greenSection.imageLogo.node.title}
               />
+            </div>
+          </section>
+        </Transition>
+        <Transition>
+          <section className={`${styles.secondDescription} container`}>
+            <div className={styles.secondDesHolder}>
+              <h2>{imageAndTextSecond.title}</h2>
+              <p>{imageAndTextSecond.description}</p>
               <Image
-                src={whatWeAreDoing.threeImages.imageThree.node.sourceUrl}
+                src={pecat}
                 width={0}
                 height={0}
                 sizes="100vw"
-                alt={whatWeAreDoing.threeImages.imageThree.node.title}
+                alt={"musmula"}
               />
             </div>
-          </div>
-          <div className={styles.twoImages}>
             <Image
-              src={whatWeAreDoing.twoImages.imageOne.node.sourceUrl}
+              src={imageAndTextSecond.image.node.sourceUrl}
               width={0}
               height={0}
               sizes="100vw"
-              alt={whatWeAreDoing.twoImages.imageOne.node.title}
+              alt={imageAndTextSecond.image.node.title}
             />
+          </section>
+        </Transition>
+        <Transition>
+          <section className={styles.whatWeDo}>
+            <div className="container">
+              <h2>{whatWeAreDoing.title}</h2>
+              <p>{whatWeAreDoing.description}</p>
+              <div className={styles.threeImages}>
+                <Image
+                  src={whatWeAreDoing.threeImages.imageOne.node.sourceUrl}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  alt={whatWeAreDoing.threeImages.imageOne.node.title}
+                />
+                <Image
+                  src={whatWeAreDoing.threeImages.imageTwo.node.sourceUrl}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  alt={whatWeAreDoing.threeImages.imageTwo.node.title}
+                />
+                <Image
+                  src={whatWeAreDoing.threeImages.imageThree.node.sourceUrl}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  alt={whatWeAreDoing.threeImages.imageThree.node.title}
+                />
+              </div>
+            </div>
+            <div className={styles.twoImages}>
+              <Image
+                src={whatWeAreDoing.twoImages.imageOne.node.sourceUrl}
+                width={0}
+                height={0}
+                sizes="100vw"
+                alt={whatWeAreDoing.twoImages.imageOne.node.title}
+              />
+              <Image
+                src={whatWeAreDoing.twoImages.imageTwo.node.sourceUrl}
+                width={0}
+                height={0}
+                sizes="100vw"
+                alt={whatWeAreDoing.twoImages.imageTwo.node.title}
+              />
+            </div>
+          </section>
+        </Transition>
+        <Transition>
+          <section className={`${styles.gallery} container`} id="our-weddings">
+            <h2 className={styles.galleryTitle}>{gallerySection.title}</h2>
+            <div className={styles.galleryHolder}>
+              {galleries &&
+                galleries.length > 0 &&
+                galleries.map((gallery) => (
+                  <div key={gallery.uri}>
+                    <Link href={gallery.uri} className={styles.galleryPageLink}>
+                      <div className={styles.imgHolder}>
+                        <Image
+                          src={gallery.featuredImage.node.sourceUrl}
+                          width={0}
+                          height={0}
+                          sizes="100vw"
+                          alt={gallery.featuredImage.node.title}
+                        />
+                      </div>
+                      <h3>{gallery.title}</h3>
+                    </Link>
+                  </div>
+                ))}
+              {!galleries ||
+                (galleries.length === 0 && (
+                  <li>
+                    <p>Oops, no posts found!</p>
+                  </li>
+                ))}
+            </div>
+            <Link href="/events" className={styles.galleryLink}>
+              {gallerySection.linkText}
+            </Link>
+          </section>
+        </Transition>
+        <Transition>
+          <section className={styles.largeImages}>
             <Image
-              src={whatWeAreDoing.twoImages.imageTwo.node.sourceUrl}
+              src={twoLargeImage.imageOne.node.sourceUrl}
               width={0}
               height={0}
               sizes="100vw"
-              alt={whatWeAreDoing.twoImages.imageTwo.node.title}
+              alt={twoLargeImage.imageOne.node.title}
             />
-          </div>
-        </section>
-        <section className={`${styles.gallery} container`} id="our-weddings">
-          <h2 className={styles.galleryTitle}>{gallerySection.title}</h2>
-          <div className={styles.galleryHolder}>
-            {galleries &&
-              galleries.length > 0 &&
-              galleries.map((gallery) => (
-                <div key={gallery.uri}>
-                  <Link href={gallery.uri} className={styles.galleryPageLink}>
-                    <div className={styles.imgHolder}>
-                      <Image
-                        src={gallery.featuredImage.node.sourceUrl}
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        alt={gallery.featuredImage.node.title}
-                      />
-                    </div>
-                    <h3>{gallery.title}</h3>
-                  </Link>
-                </div>
-              ))}
-            {!galleries ||
-              (galleries.length === 0 && (
-                <li>
-                  <p>Oops, no posts found!</p>
-                </li>
-              ))}
-          </div>
-          <Link href="/events" className={styles.galleryLink}>
-            {gallerySection.linkText}
-          </Link>
-        </section>
-        <section className={styles.largeImages}>
-          <Image
-            src={twoLargeImage.imageOne.node.sourceUrl}
-            width={0}
-            height={0}
-            sizes="100vw"
-            alt={twoLargeImage.imageOne.node.title}
-          />
-          <Image
-            src={twoLargeImage.imageTwo.node.sourceUrl}
-            width={0}
-            height={0}
-            sizes="100vw"
-            alt={twoLargeImage.imageTwo.node.title}
-          />
-        </section>
-        <section className={`${styles.published} container`}>
-          <h3>{published.title}</h3>
-          <div className={styles.logosHolder}>
-            <div className={styles.logoHolder}>
-              <Image
-                fill
-                src={published.news.imageOne.node.sourceUrl}
-                sizes={published.news.imageOne.node.sizes}
-                alt={published.news.imageOne.node.title}
-              />
-            </div>
-            <div className={styles.logoHolder}>
-              <Image
-                fill
-                src={published.news.imageTwo.node.sourceUrl}
-                sizes={published.news.imageTwo.node.sizes}
-                alt={published.news.imageTwo.node.title}
-              />
-            </div>
-            <div className={styles.logoHolder}>
-              <Image
-                fill
-                src={published.news.imageThree.node.sourceUrl}
-                sizes={published.news.imageThree.node.sourceUrl}
-                alt={published.news.imageThree.node.title}
-              />
-            </div>
-          </div>
-        </section>
-        <section className={`${styles.about} container`}>
-          <div className={styles.aboutHolder}>
-            <h2>{about.title}</h2>
-            <div
-              className={styles.textHolder}
-              dangerouslySetInnerHTML={{ __html: about.description }}
+            <Image
+              src={twoLargeImage.imageTwo.node.sourceUrl}
+              width={0}
+              height={0}
+              sizes="100vw"
+              alt={twoLargeImage.imageTwo.node.title}
             />
+          </section>
+        </Transition>
+        <Transition>
+          <section className={`${styles.published} container`}>
+            <h3>{published.title}</h3>
+            <div className={styles.logosHolder}>
+              <div className={styles.logoHolder}>
+                <Image
+                  fill
+                  src={published.news.imageOne.node.sourceUrl}
+                  sizes={published.news.imageOne.node.sizes}
+                  alt={published.news.imageOne.node.title}
+                />
+              </div>
+              <div className={styles.logoHolder}>
+                <Image
+                  fill
+                  src={published.news.imageTwo.node.sourceUrl}
+                  sizes={published.news.imageTwo.node.sizes}
+                  alt={published.news.imageTwo.node.title}
+                />
+              </div>
+              <div className={styles.logoHolder}>
+                <Image
+                  fill
+                  src={published.news.imageThree.node.sourceUrl}
+                  sizes={published.news.imageThree.node.sourceUrl}
+                  alt={published.news.imageThree.node.title}
+                />
+              </div>
+            </div>
+          </section>
+        </Transition>
+        <Transition>
+          <section className={`${styles.about} container`}>
+            <div className={styles.aboutHolder}>
+              <h2>{about.title}</h2>
+              <div
+                className={styles.textHolder}
+                dangerouslySetInnerHTML={{ __html: about.description }}
+              />
 
-            <p className={styles.subscription}>{about.subscription}</p>
-          </div>
-          <Image
-            src={about.image.node.sourceUrl}
-            width={0}
-            height={0}
-            sizes={"100vw"}
-            alt={about.image.node.title}
-          />
-        </section>
-        <section className={styles.instaSection}>
-          <h2 className={styles.instaTitle}>Pratite nas — @studiomusmula</h2>
-          <InstaFeed />
-        </section>
-        <section className={`${styles.formSection} container`}>
-          <h2>{contact.title}</h2>
-          <div
-            className={styles.description}
-            dangerouslySetInnerHTML={{ __html: contact.description }}
-          />
-          <Form />
-        </section>
+              <p className={styles.subscription}>{about.subscription}</p>
+            </div>
+            <Image
+              src={about.image.node.sourceUrl}
+              width={0}
+              height={0}
+              sizes={"100vw"}
+              alt={about.image.node.title}
+            />
+          </section>
+        </Transition>
+        <Transition>
+          <section className={styles.instaSection}>
+            <h2 className={styles.instaTitle}>Pratite nas — @studiomusmula</h2>
+            <InstaFeed />
+          </section>
+          <section className={`${styles.formSection} container`}>
+            <h2>{contact.title}</h2>
+            <div
+              className={styles.description}
+              dangerouslySetInnerHTML={{ __html: contact.description }}
+            />
+            <Form />
+          </section>
+        </Transition>
       </main>
     </Fragment>
   );

@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import galleryStringHandler from "../../lib/galleryStringhandler";
 import { gql } from "@apollo/client";
+import Transition from "../../components/Transition";
 
 import { getApolloClient } from "../../lib/apollo-client";
 
@@ -38,12 +39,14 @@ export default function Gallery({ gallery, site }) {
           sizes="100vw"
           alt={gallery.translation.galleryFields.headerImage.node.title}
         />
-        <div className={styles.eventData}>
-          <h1>{gallery.translation.title}</h1>
-          <p>Fotograf: {gallery.translation.galleryFields.author}</p>
-          <p>Lokacija: {gallery.translation.galleryFields.location}</p>
-          <p>Klijent: {gallery.translation.galleryFields.client}</p>
-        </div>
+        <Transition>
+          <div className={styles.eventData}>
+            <h1>{gallery.translation.title}</h1>
+            <p>Fotograf: {gallery.translation.galleryFields.author}</p>
+            <p>Lokacija: {gallery.translation.galleryFields.location}</p>
+            <p>Klijent: {gallery.translation.galleryFields.client}</p>
+          </div>
+        </Transition>
 
         <div className={styles.imageGallery}>
           {galeryItems.map((item, i) => {
@@ -58,13 +61,15 @@ export default function Gallery({ gallery, site }) {
                   portretImage ? styles.imagePortret : styles.imageLendscape
                 }
               >
-                <Image
-                  src={item.src}
-                  srcSet={item.srcset}
-                  width={imgWidth}
-                  height={imgHeight}
-                  alt={"testx"}
-                />
+                <Transition>
+                  <Image
+                    src={item.src}
+                    srcSet={item.srcset}
+                    width={imgWidth}
+                    height={imgHeight}
+                    alt={"testx"}
+                  />
+                </Transition>
               </div>
             );
           })}

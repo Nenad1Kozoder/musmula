@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { gql } from "@apollo/client";
+import Transition from "../components/Transition";
 
 import { getApolloClient } from "../lib/apollo-client";
 
@@ -27,18 +28,20 @@ export default function Events({ galleries, general, seo }) {
             galleries.length > 0 &&
             galleries.map((gallery) => (
               <div key={gallery.uri}>
-                <Link href={gallery.uri} className={styles.galleryLink}>
-                  <div className={styles.imgHolder}>
-                    <Image
-                      src={gallery.featuredImage.node.sourceUrl}
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                      alt={gallery.featuredImage.node.title}
-                    />
-                  </div>
-                  <h2 className={styles.title}>{gallery.title}</h2>
-                </Link>
+                <Transition>
+                  <Link href={gallery.uri} className={styles.galleryLink}>
+                    <div className={styles.imgHolder}>
+                      <Image
+                        src={gallery.featuredImage.node.sourceUrl}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        alt={gallery.featuredImage.node.title}
+                      />
+                    </div>
+                    <h2 className={styles.title}>{gallery.title}</h2>
+                  </Link>
+                </Transition>
               </div>
             ))}
           {!galleries ||
