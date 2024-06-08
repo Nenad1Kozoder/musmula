@@ -8,7 +8,7 @@ import { getApolloClient } from "../../lib/apollo-client";
 
 import styles from "../../styles/Gallery.module.scss";
 
-export default function Gallery({ gallery, site }) {
+export default function Gallery({ gallery, site, language }) {
   const galeryItems = galleryStringHandler(gallery.translation.content);
 
   return (
@@ -42,9 +42,18 @@ export default function Gallery({ gallery, site }) {
         <Transition>
           <div className={styles.eventData}>
             <h1>{gallery.translation.title}</h1>
-            <p>Fotograf: {gallery.translation.galleryFields.author}</p>
-            <p>Lokacija: {gallery.translation.galleryFields.location}</p>
-            <p>Klijent: {gallery.translation.galleryFields.client}</p>
+            <p>
+              {language === "EN" ? "Author: " : "Fotograf: "}
+              {gallery.translation.galleryFields.author}
+            </p>
+            <p>
+              {language === "EN" ? "Location: " : "Lokacija: "}
+              {gallery.translation.galleryFields.location}
+            </p>
+            <p>
+              {language === "EN" ? "Client: " : "Klijent: "}
+              {gallery.translation.galleryFields.client}
+            </p>
           </div>
         </Transition>
 

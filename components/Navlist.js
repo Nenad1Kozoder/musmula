@@ -14,25 +14,17 @@ export default function Navlist({ size, closeMenu, isFooter }) {
         }`}
       >
         <li>
-          <Link
-            onClick={menuClose}
-            href="/#what-are-we-doing"
-            className={styles.home}
-          >
+          <Link onClick={menuClose} href="/#activities" className={styles.home}>
             ŠTA SVE RADIMO
           </Link>
         </li>
         <li>
-          <Link
-            onClick={menuClose}
-            href="/#our-weddings"
-            className={styles.home}
-          >
+          <Link onClick={menuClose} href="/#weddings" className={styles.home}>
             NAŠA VENČANJA
           </Link>
         </li>
         <li>
-          <Link onClick={menuClose} href="/#about-us" className={styles.home}>
+          <Link onClick={menuClose} href="/#about" className={styles.home}>
             O NAMA
           </Link>
         </li>

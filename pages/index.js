@@ -11,6 +11,7 @@ import Form from "../components/Form";
 import InstaFeed from "../components/instaFeed";
 import { Fragment } from "react";
 import Transition from "../components/Transition";
+import { id } from "date-fns/locale";
 
 export default function Home({ page, galleries, general }) {
   const { title, description } = general;
@@ -27,6 +28,7 @@ export default function Home({ page, galleries, general }) {
     twoLargeImage,
     about,
     contact,
+    instagram,
     seo,
   } = page;
 
@@ -56,10 +58,7 @@ export default function Home({ page, galleries, general }) {
           </h2>
         </section>
         <Transition>
-          <section
-            className={`${styles.topSection} container`}
-            id="what-are-we-doing"
-          >
+          <section className={`${styles.topSection} container`} id="activities">
             <div className={styles.titleHolder}>
               <h1 className={styles.topTitle}>
                 {homepageTopPageMessage.topPageMessage}
@@ -167,7 +166,7 @@ export default function Home({ page, galleries, general }) {
           </section>
         </Transition>
         <Transition>
-          <section className={`${styles.gallery} container`} id="our-weddings">
+          <section className={`${styles.gallery} container`} id="weddings">
             <h2 className={styles.galleryTitle}>{gallerySection.title}</h2>
             <div className={styles.galleryHolder}>
               {galleries &&
@@ -250,7 +249,7 @@ export default function Home({ page, galleries, general }) {
           </section>
         </Transition>
         <Transition>
-          <section className={`${styles.about} container`}>
+          <section className={`${styles.about} container`} id="about">
             <div className={styles.aboutHolder}>
               <h2>{about.title}</h2>
               <div
@@ -271,12 +270,12 @@ export default function Home({ page, galleries, general }) {
         </Transition>
         <Transition>
           <section className={styles.instaSection}>
-            <h2 className={styles.instaTitle}>Pratite nas — @studiomusmula</h2>
+            <h2 className={styles.instaTitle}>{instagram.title}</h2>
             <InstaFeed />
           </section>
         </Transition>
         <Transition>
-          <section className={`${styles.formSection} container`}>
+          <section className={`${styles.formSection} container`} id="contact">
             <h2>{contact.title}</h2>
             <div
               className={styles.description}

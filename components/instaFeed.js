@@ -42,7 +42,7 @@ export default function InstaFeed() {
       {lastFourPosts.length > 0 && (
         <div className={styles.instaFeedGrid}>
           {lastFourPosts.map((post) => (
-            <div key={post.id} className="">
+            <div key={post.id} className={styles.instaItem}>
               <Link
                 href={post.permalink}
                 target="_blank"
@@ -60,10 +60,6 @@ export default function InstaFeed() {
                     sizes={"100vw"}
                   />
                 )}
-
-                <div className="">
-                  <p className="">{post.caption}</p>
-                </div>
               </Link>
             </div>
           ))}
