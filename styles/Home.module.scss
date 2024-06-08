@@ -577,7 +577,10 @@
     img {
       width: 100%;
       position: relative !important;
-      object-fit: scale-down;
+
+      @include mobile-portrait {
+        object-fit: scale-down;
+      }
     }
   }
 }
