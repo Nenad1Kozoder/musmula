@@ -11,7 +11,7 @@ export default function InstaFeed() {
 
   const fetchFeed = async () => {
     try {
-      const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=IGQWRPcE52MGNicjB4aHgyUVlLZADhfN0FIRU9DbHYxUnRORUo1ejdPRURPSFBSQmJ3WEoxa1JjNnRVQkc2SThBNWRBTHBuakh2ZAW1tNnAxWXVLWVRaWjczRWtkdTVaWnFFbXJIc1l2MldVZAncwbmE5Yk5sZAXNNRHMZD`;
+      const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.NEXT_PUBLIC_TOKEN_1}${process.env.NEXT_PUBLIC_TOKEN_2}`;
       const response = await fetch(url);
 
       if (!response.ok) {
