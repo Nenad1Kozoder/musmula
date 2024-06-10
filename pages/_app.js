@@ -7,11 +7,13 @@ export const spectral = Spectral({
   subsets: ["latin"],
   weight: ["300", "400"],
   variable: "--font-spectral",
+  display: "swap",
 });
 export const belleza = Belleza({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-belleza",
+  display: "swap",
 });
 
 function MyApp({ Component, pageProps }) {

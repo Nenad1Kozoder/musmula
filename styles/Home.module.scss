@@ -43,7 +43,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
 
   @include tablet {
     font-size: 78px;
@@ -354,7 +353,6 @@
   p {
     font-family: var(--font-spectral);
     font-size: 28px;
-    font-style: italic;
     font-weight: 300;
     line-height: 45px;
     text-align: center;

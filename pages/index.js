@@ -31,6 +31,9 @@ export default function Home({ page, galleries, general }) {
     seo,
   } = page;
 
+  const instaLink = instagram.title.slice(instagram.title.indexOf("@") + 1);
+  const instaTitle = instagram.title.slice(0, instagram.title.indexOf("@"));
+
   return (
     <Fragment>
       <Head>
@@ -269,7 +272,16 @@ export default function Home({ page, galleries, general }) {
         </Transition>
         <Transition>
           <section className={styles.instaSection}>
-            <h2 className={styles.instaTitle}>{instagram.title}</h2>
+            <h2 className={styles.instaTitle}>
+              {instaTitle}
+              <a
+                href={`https://www.instagram.com/${instaLink}/`}
+                target="blank"
+                passHref={true}
+              >
+                @{instaLink}
+              </a>
+            </h2>
             <InstaFeed />
           </section>
         </Transition>
