@@ -1,0 +1,73 @@
+@import "./breakpoints.scss";
+
+.imageGallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 70px 50px;
+  grid-auto-flow: row dense;
+  padding: 0 83px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @include tablet {
+    grid-gap: 30px 20px;
+    padding: 0 20px;
+  }
+
+  @include mobile-portrait {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+    grid-gap: 10px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .imagePortret {
+    grid-column: span 3;
+
+    @include mobile-portrait {
+      grid-column: auto;
+    }
+  }
+
+  .imagePortret:nth-of-type(8n - 3) {
+    grid-column: span 2;
+    margin-right: -6px;
+
+    @include mobile-portrait {
+      grid-column: auto;
+      margin-right: 0;
+    }
+  }
+
+  .imagePortret:nth-of-type(8n - 2) {
+    grid-column: span 2;
+    margin: 0 -12px;
+
+    @include mobile-portrait {
+      grid-column: auto;
+      margin: 0;
+    }
+  }
+
+  .imagePortret:nth-of-type(8n - 1) {
+    grid-column: span 2;
+    margin-left: -6px;
+
+    @include mobile-portrait {
+      grid-column: auto;
+      margin-left: 0;
+    }
+  }
+
+  .imageLendscape {
+    grid-column: span 6;
+
+    @include mobile-portrait {
+      grid-column: auto;
+    }
+  }
+}

@@ -1,16 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
-import galleryStringHandler from "../../lib/galleryStringhandler";
 import { gql } from "@apollo/client";
 import Transition from "../../components/Transition";
 
 import { getApolloClient } from "../../lib/apollo-client";
 
 import styles from "../../styles/Gallery.module.scss";
+import ImageGallery from "../../components/imageGallery";
 
 export default function Gallery({ gallery, site, language }) {
-  const galeryItems = galleryStringHandler(gallery.translation.content);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -29,7 +27,6 @@ export default function Gallery({ gallery, site, language }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className={styles.main}>
         <Image
           className={styles.headerImage}
@@ -56,33 +53,7 @@ export default function Gallery({ gallery, site, language }) {
             </p>
           </div>
         </Transition>
-
-        <div className={styles.imageGallery}>
-          {galeryItems.map((item, i) => {
-            const portretImage = item.orientation === "portrait";
-            const imgWidth = portretImage ? 400 : 600;
-            const imgHeight = portretImage ? 600 : 400;
-
-            return (
-              <div
-                key={i}
-                className={
-                  portretImage ? styles.imagePortret : styles.imageLendscape
-                }
-              >
-                <Transition>
-                  <Image
-                    src={item.src}
-                    srcSet={item.srcset}
-                    width={imgWidth}
-                    height={imgHeight}
-                    alt={"testx"}
-                  />
-                </Transition>
-              </div>
-            );
-          })}
-        </div>
+        <ImageGallery htmlString={gallery.translation.content} />
       </main>
     </div>
   );
