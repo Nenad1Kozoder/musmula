@@ -18,7 +18,7 @@ export default function ImageGallery({ htmlString }) {
         alt: img.alt,
         width: img.width,
         height: img.height,
-        isPortrait: img.height > img.width, // Determine if the image is portrait
+        isPortrait: img.height > img.width,
       }));
       setImages(imgElements);
     }

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { gql } from "@apollo/client";
 import Transition from "../../components/Transition";
-import ImageGallery from "../../components/imageGallery";
+import EventsGallery from "../../components/EventsGallery";
 
 import { getApolloClient } from "../../lib/apollo-client";
 
@@ -53,7 +53,7 @@ export default function Gallery({ gallery, site, language }) {
             </p>
           </div>
         </Transition>
-        <ImageGallery htmlString={gallery.translation.content} />
+        <EventsGallery htmlString={gallery.translation.content} />
       </main>
     </div>
   );
