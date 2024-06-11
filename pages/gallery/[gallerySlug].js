@@ -2,11 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import { gql } from "@apollo/client";
 import Transition from "../../components/Transition";
+import ImageGallery from "../../components/imageGallery";
 
 import { getApolloClient } from "../../lib/apollo-client";
 
 import styles from "../../styles/Gallery.module.scss";
-import ImageGallery from "../../components/imageGallery";
 
 export default function Gallery({ gallery, site, language }) {
   return (
@@ -60,7 +60,6 @@ export default function Gallery({ gallery, site, language }) {
 }
 
 export async function getStaticProps({ params, locale }) {
-  // const { gallerySlug } = params;
   const language = locale.toUpperCase();
 
   const apolloClient = getApolloClient();
