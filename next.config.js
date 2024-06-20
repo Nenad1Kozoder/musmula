@@ -4,7 +4,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "musmula.nenad-kozoder.rs",
+        hostname: "wpres.studiomusmula.rs",
         port: "",
         pathname: "/wp-content/uploads/**",
       },

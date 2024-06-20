@@ -7,8 +7,6 @@ export default function InstaFeed() {
   const [instagramFeed, setInstagramFeed] = useState({ data: [], paging: {} });
   const [error, setError] = useState(null);
 
-  console.log(instagramFeed);
-
   const fetchFeed = async () => {
     try {
       const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.NEXT_PUBLIC_TOKEN_1}${process.env.NEXT_PUBLIC_TOKEN_2}`;
@@ -19,7 +17,6 @@ export default function InstaFeed() {
       }
 
       const feed = await response.json();
-      console.log(feed);
 
       setInstagramFeed(feed);
     } catch (err) {

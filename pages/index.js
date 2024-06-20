@@ -300,7 +300,7 @@ export default function Home({ page, galleries, general }) {
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const apolloClient = getApolloClient();
 
   const language = locale.toUpperCase();

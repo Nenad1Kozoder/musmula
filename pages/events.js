@@ -56,7 +56,7 @@ export default function Events({ galleries, general, seo }) {
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const apolloClient = getApolloClient();
 
   const language = locale.toUpperCase();

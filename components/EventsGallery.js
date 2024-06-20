@@ -5,7 +5,7 @@ import Transition from "./Transition";
 
 import styles from "../styles/ImageGallery.module.scss";
 
-export default function ImageGallery({ htmlString }) {
+export default function EventsGallery({ htmlString }) {
   const [images, setImages] = useState([]);
   const divRef = useRef(null);
 
@@ -55,5 +55,3 @@ export default function ImageGallery({ htmlString }) {
     </div>
   );
 }
-
-ImageGallery;
