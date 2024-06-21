@@ -12,8 +12,8 @@ export default function Form() {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_0n4dk8n", "template_48wx9fn", form.current, {
-        publicKey: "D6jSC7t_q2d-N0jYG",
+      .sendForm("service_0n4dk8n", "template_pgkog7b", form.current, {
+        publicKey: "n23RVcI3doAUOsGz9",
       })
       .then(
         () => {

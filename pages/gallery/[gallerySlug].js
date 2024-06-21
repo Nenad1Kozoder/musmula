@@ -40,15 +40,18 @@ export default function Gallery({ gallery, site, language }) {
           <div className={styles.eventData}>
             <h1>{gallery.translation.title}</h1>
             <p>
-              {language === "EN" ? "Author: " : "Fotograf: "}
+              {gallery.translation.galleryFields.author &&
+                `${language === "EN" ? "Author: " : "Fotograf: "}`}
               {gallery.translation.galleryFields.author}
             </p>
             <p>
-              {language === "EN" ? "Location: " : "Lokacija: "}
+              {gallery.translation.galleryFields.location &&
+                `${language === "EN" ? "Location: " : "Lokacija: "}`}
               {gallery.translation.galleryFields.location}
             </p>
             <p>
-              {language === "EN" ? "Client: " : "Klijent: "}
+              {gallery.translation.galleryFields.client &&
+                `${language === "EN" ? "Client: " : "Klijent: "}`}
               {gallery.translation.galleryFields.client}
             </p>
           </div>
