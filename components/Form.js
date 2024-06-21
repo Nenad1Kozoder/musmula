@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 import styles from "../styles/Form.module.scss";
 
 export default function Form() {
   const form = useRef();
+  const [formIsSent, setFormIsSent] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -18,6 +19,13 @@ export default function Form() {
       .then(
         () => {
           console.log("SUCCESS!");
+          setFormIsSent(!formIsSent);
+          form.current.reset();
+
+          setTimeout(
+            () => setFormIsSent((prevFormIsSent) => !prevFormIsSent),
+            3000
+          );
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -86,7 +94,7 @@ export default function Form() {
         <textarea id="message" name="message" rows="10" cols="50" />
       </div>
       <button className={styles.submit} type="submit">
-        POŠALJITE
+        {!formIsSent ? "POŠALJITE" : "USPEŠNO STE POSLALI PORUKU"}
       </button>
     </form>
   );

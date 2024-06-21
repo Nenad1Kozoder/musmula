@@ -277,7 +277,7 @@ export default function Home({ page, galleries, general }) {
               <a
                 href={`https://www.instagram.com/${instaLink}/`}
                 target="blank"
-                passHref={true}
+                passhref="true"
               >
                 @{instaLink}
               </a>
