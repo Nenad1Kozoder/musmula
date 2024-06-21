@@ -12,7 +12,7 @@ export default function Form() {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_0n4dk8n", "template_pgkog7b", form.current, {
+      .sendForm("service_16yhohb", "template_pgkog7b", form.current, {
         publicKey: "n23RVcI3doAUOsGz9",
       })
       .then(
