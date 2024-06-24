@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 
 import styles from "../styles/Form.module.scss";
 
-export default function Form({ locale }) {
+export default function Form({ locale, publicKey, serviceKey, templateKey }) {
   const form = useRef();
   const [formIsSent, setFormIsSent] = useState(false);
 
@@ -13,8 +13,8 @@ export default function Form({ locale }) {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_16yhohb", "template_v965ye9", form.current, {
-        publicKey: "n23RVcI3doAUOsGz9",
+      .sendForm(serviceKey, templateKey, form.current, {
+        publicKey: publicKey,
       })
       .then(
         () => {

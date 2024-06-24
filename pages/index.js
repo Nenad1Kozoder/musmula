@@ -292,7 +292,13 @@ export default function Home({ page, galleries, general, locale }) {
               className={styles.description}
               dangerouslySetInnerHTML={{ __html: contact.description }}
             />
-            <Form locale={locale} />
+            {contact.platformKeys.publicKey}
+            <Form
+              locale={locale}
+              publicKey={contact.platformKeys.publicKey}
+              serviceKey={contact.platformKeys.serviceKey}
+              templateKey={contact.platformKeys.templateKey}
+            />
           </section>
         </Transition>
       </main>
@@ -473,6 +479,11 @@ export async function getServerSideProps({ locale }) {
                 contact {
                   title
                   description
+                  platformKeys {
+                    publicKey
+                    serviceKey
+                    templateKey
+                  }
                 }
                 instagram {
                   title
