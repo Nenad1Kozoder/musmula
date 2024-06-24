@@ -11,7 +11,6 @@ import Form from "../components/Form";
 import InstaFeed from "../components/instaFeed";
 import { Fragment } from "react";
 import Transition from "../components/Transition";
-import { language } from "gray-matter";
 
 export default function Home({ page, galleries, general, locale }) {
   const { title, description } = general;
