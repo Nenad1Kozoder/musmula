@@ -292,7 +292,6 @@ export default function Home({ page, galleries, general, locale }) {
               className={styles.description}
               dangerouslySetInnerHTML={{ __html: contact.description }}
             />
-            {contact.platformKeys.publicKey}
             <Form
               locale={locale}
               publicKey={contact.platformKeys.publicKey}
