@@ -11,8 +11,9 @@ import Form from "../components/Form";
 import InstaFeed from "../components/instaFeed";
 import { Fragment } from "react";
 import Transition from "../components/Transition";
+import { language } from "gray-matter";
 
-export default function Home({ page, galleries, general }) {
+export default function Home({ page, galleries, general, locale }) {
   const { title, description } = general;
   const {
     homepageMessage,
@@ -292,7 +293,7 @@ export default function Home({ page, galleries, general }) {
               className={styles.description}
               dangerouslySetInnerHTML={{ __html: contact.description }}
             />
-            <Form />
+            <Form locale={locale} />
           </section>
         </Transition>
       </main>
@@ -518,6 +519,7 @@ export async function getServerSideProps({ locale }) {
       page,
       galleries,
       general,
+      locale,
     },
   };
 }

@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 import styles from "../styles/Form.module.scss";
 
-export default function Form() {
+export default function Form({ locale }) {
   const form = useRef();
   const [formIsSent, setFormIsSent] = useState(false);
 
@@ -36,7 +36,7 @@ export default function Form() {
   return (
     <form ref={form} className={styles.form} onSubmit={sendEmail}>
       <div className={styles.formItem}>
-        <label htmlFor="name">Ime:</label>
+        <label htmlFor="name">{locale === "en" ? "Name:" : "Ime:"}</label>
         <input
           type="text"
           id="user_name"
@@ -46,7 +46,9 @@ export default function Form() {
         />
       </div>
       <div className={styles.formItem}>
-        <label htmlFor="lastname">Prezime:</label>
+        <label htmlFor="lastname">
+          {locale === "en" ? "Lastname:" : "Prezime:"}
+        </label>
         <input
           type="text"
           id="user_lastname"
@@ -56,7 +58,7 @@ export default function Form() {
         />
       </div>
       <div className={styles.formItem}>
-        <label htmlFor="email">E-mail:</label>
+        <label htmlFor="email">{locale === "en" ? "email:" : "E-mail:"}</label>
         <input
           type="email"
           id="user_email"
@@ -66,7 +68,7 @@ export default function Form() {
         />
       </div>
       <div className={styles.formItem}>
-        <label htmlFor="phone">Telefon:</label>
+        <label htmlFor="phone">{locale === "en" ? "Phone:" : "Telefon:"}</label>
         <input
           type="phone"
           id="phone"
@@ -76,11 +78,15 @@ export default function Form() {
         />
       </div>
       <div className={styles.formItem}>
-        <label htmlFor="date">Datum događaja:</label>
+        <label htmlFor="date">
+          {locale === "en" ? "Events date:" : "Datum događaja:"}
+        </label>
         <input type="text" id="date" name="date" autoComplete="off" required />
       </div>
       <div className={styles.formItem}>
-        <label htmlFor="place">Mesto događaja:</label>
+        <label htmlFor="place">
+          {locale === "en" ? "Venue:" : "Mesto događaja:"}
+        </label>
         <input
           type="text"
           id="place"
@@ -90,11 +96,19 @@ export default function Form() {
         />
       </div>
       <div className={styles.textarea}>
-        <label htmlFor="message">Vaša priča:</label>
+        <label htmlFor="message">
+          {locale === "en" ? "Your story:" : "Vaša priča:"}
+        </label>
         <textarea id="message" name="message" rows="10" cols="50" />
       </div>
       <button className={styles.submit} type="submit">
-        {!formIsSent ? "POŠALJITE" : "USPEŠNO STE POSLALI PORUKU"}
+        {!formIsSent
+          ? locale === "en"
+            ? "SEND"
+            : "POŠALJITE"
+          : locale === "en"
+          ? "SUCCESS"
+          : "USPEŠNO STE POSLALI PORUKU"}
       </button>
     </form>
   );

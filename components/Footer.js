@@ -17,9 +17,11 @@ export default function Footer() {
     <div className={styles.footer}>
       <div className={styles.copyrigh}>
         <p>© STUDIO MUŠMULA 2024.</p>
-        <p>ALL RIGHTS RESERVED</p>
+        <p>
+          {activeLocale === "en" ? "ALL RIGHTS RESERVED" : "SVA PRAVA ZADŽANA"}
+        </p>
       </div>
-      <Navlist />
+      <Navlist locale={activeLocale} />
       <div className={styles.toTop}>
         <Image
           src={arrow}

@@ -46,7 +46,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <Navlist size="large" closeMenu={menuHandler} />
+          <Navlist size="large" closeMenu={menuHandler} locale={activeLocale} />
 
           <ul className={styles.langSwitch}>
             <li>
