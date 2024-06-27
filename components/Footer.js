@@ -18,7 +18,7 @@ export default function Footer() {
       <div className={styles.copyrigh}>
         <p>© STUDIO MUŠMULA 2024.</p>
         <p>
-          {activeLocale === "en" ? "ALL RIGHTS RESERVED" : "SVA PRAVA ZADŽANA"}
+          {activeLocale === "en" ? "ALL RIGHTS RESERVED" : "SVA PRAVA ZADŽRANA"}
         </p>
       </div>
       <Navlist locale={activeLocale} />

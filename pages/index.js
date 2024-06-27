@@ -34,6 +34,31 @@ export default function Home({ page, galleries, general, locale }) {
   const instaLink = instagram.title.slice(instagram.title.indexOf("@") + 1);
   const instaTitle = instagram.title.slice(0, instagram.title.indexOf("@"));
 
+  function splitStringWithBR(input) {
+    let middle = Math.floor(input.length / 2);
+    let leftIndex = input.lastIndexOf(" ", middle);
+    let rightIndex = input.indexOf(" ", middle);
+    let splitIndex;
+
+    if (leftIndex === -1 && rightIndex === -1) {
+      splitIndex = middle;
+    } else if (leftIndex === -1) {
+      splitIndex = rightIndex;
+    } else if (rightIndex === -1) {
+      splitIndex = leftIndex;
+    } else {
+      splitIndex =
+        middle - leftIndex <= rightIndex - middle ? leftIndex : rightIndex;
+    }
+
+    let part1 = input.substring(0, splitIndex);
+    let part2 = input.substring(splitIndex + 1);
+
+    return part1 + " <br/>" + part2;
+  }
+
+  const headerTitle = splitStringWithBR(homepageMessage.headerMessage);
+
   return (
     <Fragment>
       <Head>
@@ -55,9 +80,10 @@ export default function Home({ page, galleries, general, locale }) {
             sizes="100vw"
             alt={featuredImage.node.title}
           />
-          <h2 className={styles.headerTitle}>
-            {homepageMessage.headerMessage}
-          </h2>
+          <h2
+            className={styles.headerTitle}
+            dangerouslySetInnerHTML={{ __html: headerTitle }}
+          />
         </section>
         <Transition>
           <section className={`${styles.topSection} container`} id="activities">
