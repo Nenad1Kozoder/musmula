@@ -2,11 +2,11 @@
 
 .instaFeedGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 25%);
   margin-top: 19px;
 
   @include mobile-portrait {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, (100% / 3));
   }
 
   .instaItem {

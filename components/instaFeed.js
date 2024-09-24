@@ -7,9 +7,26 @@ export default function InstaFeed() {
   const [instagramFeed, setInstagramFeed] = useState({ data: [], paging: {} });
   const [error, setError] = useState(null);
 
+  // API poziv za osvežavanje access tokena
+  const refreshAccessToken = async () => {
+    try {
+      const response = await fetch("/api/refreshToken");
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to refresh access token");
+      }
+
+      console.log("New token:", data.new_token); // Ovde možeš sačuvati novi token ako je potrebno
+    } catch (err) {
+      console.error("Error refreshing access token:", err);
+    }
+  };
+
+  // API poziv za dobijanje Instagram feed-a
   const fetchFeed = async () => {
     try {
-      const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.NEXT_PUBLIC_TOKEN_1}${process.env.NEXT_PUBLIC_TOKEN_2}`;
+      const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.NEXT_PUBLIC_TOKEN}`;
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -17,7 +34,6 @@ export default function InstaFeed() {
       }
 
       const feed = await response.json();
-
       setInstagramFeed(feed);
     } catch (err) {
       console.error("Error fetching Instagram feed:", err.message);
@@ -25,8 +41,14 @@ export default function InstaFeed() {
     }
   };
 
+  // Poziv API-ja za osvežavanje tokena i dobijanje feed-a
   useEffect(() => {
-    fetchFeed();
+    const checkAndFetchFeed = async () => {
+      await refreshAccessToken(); // Prvo osveži access token
+      await fetchFeed(); // Zatim dohvati Instagram feed
+    };
+
+    checkAndFetchFeed();
   }, []);
 
   // Prikazivanje samo poslednja 4 posta

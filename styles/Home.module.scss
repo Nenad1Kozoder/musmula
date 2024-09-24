@@ -699,19 +699,60 @@
     font-weight: 400;
     line-height: 44px;
     text-align: center;
-    margin-bottom: 84px;
+    margin-bottom: 32px;
 
     @include tablet {
       font-size: 24px;
       line-height: 28px;
-      margin-bottom: 64px;
+      margin-bottom: 24px;
     }
 
     @include mobile {
       font-size: 16px;
       line-height: 17px;
-      margin-bottom: 32px;
+      margin-bottom: 12px;
     }
+  }
+}
+
+.contactList {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  font-size: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: var(--font-spectral);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 44px;
+  text-align: center;
+  margin-bottom: 84px;
+  flex-direction: column;
+
+  @include tablet {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 64px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 17px;
+    margin-bottom: 32px;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  span {
+    font-weight: 700;
+    font-family: var(--font-belleza);
+    text-transform: uppercase;
+    margin-bottom: 8px;
   }
 }
 

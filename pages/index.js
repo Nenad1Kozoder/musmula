@@ -318,6 +318,22 @@ export default function Home({ page, galleries, general, locale }) {
               className={styles.description}
               dangerouslySetInnerHTML={{ __html: contact.description }}
             />
+            <ul className={styles.contactList}>
+              <li>
+                <span>Radmila Stranjanac</span>
+                <a href="tel:+381641848535">+381641848535</a>
+              </li>
+              <li>
+                <span>Marija Sretenović</span>
+                <a href="tel:+381652144914">+381652144914</a>
+              </li>
+              <li>
+                <span>e-mail</span>
+                <a href="mailto:office@studiomusmula.rs">
+                  office@studiomusmula.rs
+                </a>
+              </li>
+            </ul>
             <Form
               locale={locale}
               publicKey={contact.platformKeys.publicKey}
