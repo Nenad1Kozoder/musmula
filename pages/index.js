@@ -320,17 +320,21 @@ export default function Home({ page, galleries, general, locale }) {
             />
             <ul className={styles.contactList}>
               <li>
-                <span>Radmila Stranjanac</span>
-                <a href="tel:+381641848535">+381641848535</a>
+                <span>{contact.contacts.name_one}</span>
+                <a href={`tel:${contact.contacts.phone_one}`}>
+                  {contact.contacts.phone_one}
+                </a>
               </li>
               <li>
-                <span>Marija Sretenović</span>
-                <a href="tel:+381652144914">+381652144914</a>
+                <span>{contact.contacts.name_two}</span>
+                <a href={`tel:${contact.contacts.phone_two}`}>
+                  {contact.contacts.phone_two}
+                </a>
               </li>
               <li>
-                <span>e-mail</span>
-                <a href="mailto:office@studiomusmula.rs">
-                  office@studiomusmula.rs
+                <span>e-mail:</span>
+                <a href={`mailto:${contact.contacts.email}`}>
+                  {contact.contacts.email}
                 </a>
               </li>
             </ul>
@@ -520,6 +524,13 @@ export async function getServerSideProps({ locale }) {
                 contact {
                   title
                   description
+                  contacts {
+                    email
+                    name_one
+                    name_two
+                    phone_one
+                    phone_two
+                  }
                   platformKeys {
                     publicKey
                     serviceKey
