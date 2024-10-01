@@ -10,7 +10,7 @@ export default function InstaFeed() {
   // API poziv za dobijanje Instagram feed-a
   const fetchFeed = async () => {
     try {
-      const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.INS_TOKEN}`;
+      const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.NEXT_PUBLIC_INST_TOKEN}`;
       const response = await fetch(url);
 
       if (!response.ok) {
