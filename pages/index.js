@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import { gql } from "@apollo/client";
 import pecat from "../assets/pecat.svg";
 
@@ -33,6 +34,16 @@ export default function Home({ page, galleries, general, locale }) {
 
   const instaLink = instagram.title.slice(instagram.title.indexOf("@") + 1);
   const instaTitle = instagram.title.slice(0, instagram.title.indexOf("@"));
+
+  // const [isClient, setIsClient] = useState(false);
+
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
+
+  // if (!isClient) {
+  //   return null; // Nema renderovanja dok stranica ne bude renderovana na klijentu
+  // }
 
   function splitStringWithBR(input) {
     let middle = Math.floor(input.length / 2);
@@ -308,7 +319,16 @@ export default function Home({ page, galleries, general, locale }) {
                 @{instaLink}
               </a>
             </h2>
-            <InstaFeed />
+            {/* <InstaFeed /> */}
+            <Script
+              src="https://static.elfsight.com/platform/platform.js"
+              async
+            ></Script>
+            <div
+              suppressHydrationWarning
+              className="elfsight-app-9872b12a-8095-4bf8-b766-7098a83e3c83"
+              data-elfsight-app-lazy
+            ></div>
           </section>
         </Transition>
         <Transition>
